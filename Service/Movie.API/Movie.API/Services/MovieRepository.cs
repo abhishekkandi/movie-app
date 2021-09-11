@@ -28,17 +28,17 @@ namespace Movie.API.Services
 
         private void ApplyFilter(MovieFilter filter, ref IEnumerable<MovieEntity> movies)
         {
-            if (!string.IsNullOrEmpty(filter.Language))
+            if (!string.IsNullOrEmpty(filter?.Language))
             {
                 movies = movies.Where(x => x.Language.ToLower().Contains(filter.Language.ToLower()));
             }
 
-            if (!string.IsNullOrEmpty(filter.Location))
+            if (!string.IsNullOrEmpty(filter?.Location))
             {
                 movies = movies.Where(x => x.Location.ToLower().Contains(filter.Location.ToLower()));
             }
 
-            if (!string.IsNullOrEmpty(filter.Title))
+            if (!string.IsNullOrEmpty(filter?.Title))
             {
                 movies = movies.Where(x => x.Title.ToLower().Contains(filter.Title.ToLower()));
             }
