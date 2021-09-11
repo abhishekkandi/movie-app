@@ -3,7 +3,15 @@ import VueRouter from "vue-router";
 
 Vue.use(VueRouter);
 
-import MovieDetailPage from './components/MovieDetails.vue'
+import MovieDetails from './components/MovieDetails.vue'
+
+const routes = [
+    {
+        path: "/movie/:movieid",
+        name: "movie",
+        component: MovieDetails
+    }
+]
 
 const router = new VueRouter({
     linkActiveClass: 'active',
@@ -11,13 +19,5 @@ const router = new VueRouter({
     mode: 'history',
     routes 
 })
-
-const routes = [
-    {
-        path: "/movie/:movieid",
-        name: "movie",
-        component: MovieDetailPage
-    }
-]
 
 export default router;
