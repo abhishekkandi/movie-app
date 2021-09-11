@@ -7,5 +7,7 @@ namespace Movie.API.Services
     public interface IMovieRepository
     {
         IEnumerable<MovieEntity> GetMovies(MovieFilter filter);
+
+        MovieEntity GetMovieById(string id);
     }
 }

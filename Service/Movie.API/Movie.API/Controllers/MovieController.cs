@@ -20,5 +20,15 @@ namespace Movie.API.Controllers
         {
             return Ok(_movieRepository.GetMovies(filter));
         }
+
+        [HttpGet]
+        [Route("api/Movie/{id}")]
+        public IActionResult GetMovieById(string id)
+        {
+            if (string.IsNullOrEmpty(id))
+                return BadRequest("Movie Id can't be empty.");
+
+            return Ok(_movieRepository.GetMovieById(id));
+        }
     }
 }

@@ -43,5 +43,10 @@ namespace Movie.API.Services
                 movies = movies.Where(x => x.Title.ToLower().Contains(filter.Title.ToLower()));
             }
         }
+
+        public MovieEntity GetMovieById(string id)
+        {
+            return GetMovies(null)?.FirstOrDefault(x => x.IMDBID == id);
+        }
     }
 }
