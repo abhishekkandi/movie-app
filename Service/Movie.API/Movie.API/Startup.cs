@@ -21,6 +21,16 @@ namespace Movie.API
             services.AddControllers();
 
             services.AddServices();
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                    builder => builder
+                    .SetIsOriginAllowed((host) => true)
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials());
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -34,6 +44,8 @@ namespace Movie.API
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors("CorsPolicy");
 
             app.UseAuthorization();
 
